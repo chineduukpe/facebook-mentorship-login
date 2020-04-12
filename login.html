@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Example</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-wrapper">
+            <div class="login-image-wrapper">
+                <img src="logo-plain.png" alt="" class="login-image">
+            </div>
+            <div class="login-form-wrapper">
+                <form action="javascript:;" id="signup-form">
+                    <h3>Sign up</h3>
+                    <div class="custom-form-group">
+                        <!-- <label for="name">Full Name:</label> -->
+                        <input type="text" class="custom-form-input" placeholder="Fullname">
+                    </div>
+                    <div class="custom-form-group">
+                        <!-- <label for="email">Email:</label> -->
+                        <input type="text" class="custom-form-input" placeholder="ENter Email">
+                    </div>
+                    <div class="custom-form-group">
+                        <!-- <label for="phone">Phone:</label> -->
+                        <input type="text" class="custom-form-input" placeholder="Phone Number">
+                    </div>
+                    <div class="custom-form-group">
+                        <!-- <label for="password">Password:</label> -->
+                        <input type="password" class="custom-form-input" placeholder="Password">
+                    </div>
+                    <div class="custom-form-group">
+                        <!-- <label for="cpassword">Confirm password:</label> -->
+                        <input type="password" class="custom-form-input" placeholder="Confirm Password">
+                    </div>
+                    <button>Sign up</button>
+                </form>
+                <form action="javascript:;" id="login-form" class="hide">
+                    <h3>Login</h3>
+                    <p>Welcome back, we have missed you!</p>
+
+                    <div class="custom-form-group">
+                        <!-- <label for="email">Email:</label> -->
+                        <input type="text" class="custom-form-input" placeholder="Enter Email">
+                    </div>
+                    <div class="custom-form-group">
+                        <!-- <label for="password">Password:</label> -->
+                        <input type="password" class="custom-form-input" placeholder="Password">
+                    </div>
+                    <div class="custom-form-group">
+                        <label for="remember" class="checkbox-container">
+							
+							<input type="checkbox" name="remember" id="remember">
+							<span class="checkbox-marker"></span> 
+							<span class="label-text">Remember me?</span>
+						</label>
+                    </div>
+                    <div class="bottom-form-link">
+                        <a href="javascript:;">Forgotten password?</a>
+                    </div>
+                    <button>Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('#signup-form, #login-form').addEventListener('submit', function(evt) {
+            evt.preventDefault();
+            console.log('clicked')
+            document.querySelector('#login-form').classList.toggle('hide')
+            document.querySelector('#signup-form').classList.toggle('hide')
+        })
+    </script>
+</body>
+
+</html>

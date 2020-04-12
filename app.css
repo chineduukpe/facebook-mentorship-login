@@ -1,0 +1,288 @@
+body {
+    font-family: tahoma, arial, 'san-serif', 'open sans';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(235, 161, 23);
+    font-size: 10pt;
+}
+
+.newsletter-popup-container {
+    position: relative;
+    /*display: flex;*/
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    display: none;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.newsletter-popup-wrapper {
+    position: absolute;
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid #aaa;
+    border-bottom: 3px dashed #aaa;
+    box-shadow: 0 0 20px #ccc;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.newsletter-popup-wrapper form h3 {
+    margin: 10px;
+}
+
+.newsletter-popup-wrapper form p {
+    font-size: 10pt;
+    color: #555;
+    padding: 5px;
+}
+
+.newsletter-popup-wrapper form .newsletter-input {
+    font-size: 11pt;
+    color: #444;
+    border: 1px solid #aaa;
+    padding: 4px;
+    background: #aaa;
+    display: block;
+    color: #fff;
+    width: 70%;
+    margin: 5px auto;
+}
+
+.newsletter-popup-wrapper form button {
+    padding: 4px 8px;
+    margin-top: 30px;
+    color: #333;
+    font-size: 8pt;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.newsletter-popup-wrapper form button:hover {
+    background: #ddd;
+}
+
+.newsletter-popup-container .close {
+    color: #000;
+    font-size: 8pt;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+
+/* 										*
+*						LOGIN 			*
+*/
+
+.login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrapper {
+    width: 95%;
+    max-width: 800px;
+    box-shadow: 0 0 10px #ddd;
+    border: 1px solid #ddd;
+    border-bottom: 3px solid #ddd;
+    display: flex;
+    flex-direction: row;
+}
+
+.login-image-wrapper {
+    width: 50%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(235, 161, 23);
+}
+
+.login-image-wrapper img {
+    max-height: 200px;
+    display: inline-block;
+}
+
+.login-form-wrapper form h3 {
+    font-size: 15pt;
+    margin: 30px;
+    color: rgb(235, 161, 23);
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.login-form-wrapper {
+    min-width: 50%;
+    padding-left: 20px;
+}
+
+.login-form-wrapper form .custom-form-input {
+    padding: 10px;
+    margin: 10px 4px;
+    min-width: 80%;
+    border: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    letter-spacing: 2px;
+    border-radius: 0px 5px 0 0;
+    color: rgba(77, 74, 74, 0.931);
+    transition: all .3s linear;
+}
+
+.login-form-wrapper form .custom-form-input:focus {
+    font-weight: 600;
+}
+
+.login-form-wrapper form button {
+    padding: 10px 30px;
+    font-size: 13px;
+    color: #555;
+    margin: 30px;
+    border: #555;
+    background: rgba(235, 160, 23, 0.856);
+    color: #fff;
+    margin-left: 0;
+    border-radius: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.login-form-wrapper form button:hover {
+    background-color: rgb(235, 161, 23);
+}
+
+.login-form-wrapper p,
+.login-form-wrapper label {
+    color: #555;
+    width: 100%;
+    margin: 4px;
+    font-size: 10pt;
+}
+
+.checkbox-container {
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.checkbox-container input {
+    width: 0;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #aaa;
+}
+
+.checkbox-container:hover input~.checkbox-marker {
+    background: #bbb;
+}
+
+.checkbox-container input:checked~.checkbox-marker {
+    background: rgb(235, 161, 23);
+}
+
+.checkbox-marker::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked~.checkbox-marker::after {
+    display: block;
+}
+
+.checkbox-container .checkbox-marker::after {
+    left: 7px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container .label-text {
+    font-size: 10pt;
+    font-weight: 200;
+    color: #555;
+    position: relative;
+    left: 40px;
+}
+
+#login-form.hide,
+#signup-form.hide {
+    display: none;
+}
+
+.bottom-form-link {
+    margin: 20px 0;
+}
+
+
+/* Small Phones */
+
+@media screen and (max-width: 520px) {
+    /* .login-container {
+        padding: 10px;
+    } */
+    .login-wrapper {
+        flex-direction: column;
+        width: 95%;
+    }
+    .login-image-wrapper {
+        width: 100%;
+    }
+    .login-form-wrapper {
+        width: 90%;
+    }
+    .login-image-wrapper {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .login-form-wrapper {
+        margin: 0 auto;
+    }
+    .login-image-wrapper img {
+        max-height: 100px;
+    }
+    .login-form-wrapper .custom-form-group {
+        margin: 0 auto;
+        width: 100%;
+        border: 1px solid #fff;
+        box-sizing: border-box;
+    }
+    .login-form-wrapper form .custom-form-input {
+        width: 90%;
+    }
+}
