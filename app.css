@@ -178,6 +178,14 @@ a {
     font-size: 10pt;
 }
 
+.login-form-wrapper span.error {
+    display: block;
+    padding: 0 10px;
+    font-size: 8pt;
+    font-weight: 100;
+    color: rgb(251, 75, 59);
+}
+
 .checkbox-container {
     position: relative;
     cursor: pointer;

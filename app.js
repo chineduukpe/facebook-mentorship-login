@@ -22,15 +22,9 @@ close_newsletter_button.addEventListener('click', function(evt) {
         width -= 10;
         newsletter_container.style.width = `${width}px`;
         if (width < 0) {
+            newsletter_container.style.width = `0px`;
             newsletter_container.style.overflow = 'hidden'
             clearInterval(close_interval)
         }
     }, 0.05);
-})
-
-// SIGN UP
-document.querySelector('#signup-form').addEventListener('submit', function(evt) {
-    evt.preventDefault();
-    this.style.display = 'none';
-    document.querySelector('#login-form').style.display = 'block'
 })

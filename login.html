@@ -18,22 +18,27 @@
                     <div class="custom-form-group">
                         <!-- <label for="name">Full Name:</label> -->
                         <input type="text" class="custom-form-input" placeholder="Fullname">
+                        <span class="error"></span>
                     </div>
                     <div class="custom-form-group">
                         <!-- <label for="email">Email:</label> -->
                         <input type="text" class="custom-form-input" placeholder="ENter Email">
+                        <span class="error"></span>
                     </div>
                     <div class="custom-form-group">
                         <!-- <label for="phone">Phone:</label> -->
                         <input type="text" class="custom-form-input" placeholder="Phone Number">
+                        <span class="error"></span>
                     </div>
                     <div class="custom-form-group">
                         <!-- <label for="password">Password:</label> -->
-                        <input type="password" class="custom-form-input" placeholder="Password">
+                        <input type="password" name="password" class="custom-form-input" placeholder="Password">
+                        <span class="error"></span>
                     </div>
                     <div class="custom-form-group">
                         <!-- <label for="cpassword">Confirm password:</label> -->
-                        <input type="password" class="custom-form-input" placeholder="Confirm Password">
+                        <input type="password" name="confirm-password" class="custom-form-input" placeholder="Confirm Password">
+                        <span class="error"></span>
                     </div>
                     <button>Sign up</button>
                 </form>
@@ -66,11 +71,53 @@
         </div>
     </div>
     <script>
+        const formErrorReporter = function(element, color, message) {
+            element.style.color = color
+            element.innerHTML = message
+        }
+        const handleInput = function(evt) {
+            let error_span = evt.target.parentNode.querySelector('span.error');
+            if (evt.target.value === null || evt.target.value === '') {
+                formErrorReporter(error_span, 'rgb(251, 75, 59)', 'This Field Cannot be empty')
+                    // error_span.style.color = "rgb(251, 75, 59)"
+                    // error_span.innerHTML = "This field cannot be empty"
+            } else {
+                formErrorReporter(error_span, 'rgb(65, 200, 74)', 'Accepted')
+                    // error_span.innerHTML = "Accepted"
+                    // error_span.style.color = "rgb(65, 255, 74)"
+            }
+        }
+
         document.querySelector('#signup-form, #login-form').addEventListener('submit', function(evt) {
             evt.preventDefault();
             console.log('clicked')
             document.querySelector('#login-form').classList.toggle('hide')
             document.querySelector('#signup-form').classList.toggle('hide')
+        })
+
+        document.querySelectorAll('.custom-form-input').forEach(item => {
+            item.addEventListener('blur', function(evt) {
+                handleInput(evt);
+            })
+        })
+        document.querySelectorAll('.custom-form-input').forEach(item => {
+            item.addEventListener('keyup', function(evt) {
+                handleInput(evt);
+            })
+        })
+        document.querySelector('.custom-form-input[name="confirm-password"]').addEventListener('keyup', function(evt) {
+            let value = evt.target.value;
+            let password = evt.currentTarget.parentNode.parentNode.querySelector('input[name="password"]').value
+            if (value !== password) {
+                formErrorReporter(evt.currentTarget.parentNode.querySelector('span.error'), 'red', 'Password mismatch')
+            }
+        })
+        document.querySelector('.custom-form-input[name="confirm-password"]').addEventListener('blur', function(evt) {
+            let value = evt.target.value;
+            let password = evt.currentTarget.parentNode.parentNode.querySelector('input[name="password"]').value
+            if (value !== password) {
+                formErrorReporter(evt.currentTarget.parentNode.querySelector('span.error'), 'red', 'Password mismatch')
+            }
         })
     </script>
 </body>
